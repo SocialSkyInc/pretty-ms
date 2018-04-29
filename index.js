@@ -2,7 +2,7 @@
 const parseMs = require('parse-ms');
 const plur = require('plur');
 
-module.exports = (ms, opts) => {
+module.exports = function (ms, opts) {
 	if (!Number.isFinite(ms)) {
 		throw new TypeError('Expected a finite number');
 	}
@@ -16,7 +16,7 @@ module.exports = (ms, opts) => {
 
 	const ret = [];
 
-	const add = (val, long, short, valStr) => {
+	const add = function (val, long, short, valStr) {
 		if (val === 0) {
 			return;
 		}
